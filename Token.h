@@ -9,6 +9,7 @@
 #define __Lab4__Token__
 
 #include <iostream>
+
 #include "common.h"
 #include "LineNumberList.h"
 
@@ -22,19 +23,7 @@ class Token
 {
 private:
     TokenCode code;
-    LiteralType type;
-    union
-    {
-        int integer;
-        float real;
-        char *stringLiteral;
-    }
-    literal;
     string tokenString;
-    //What variables and methods am I missing to implement a binary tree.
-    Token *leftChild;
-    Token *rightChild;
-    LineNumberList *list;
     
 public:
     Token();
@@ -51,12 +40,8 @@ public:
     string getStringLiteral();
     void setTokenString(string s);
     string getTokenString();
-    void setLeftChild(Token *tok);
-    Token *getLeftChild();
-    void setRightChild(Token *tok);
-    Token *getRightChild();
-    void addToLineNumberList(LineNumberList *listItem);
-    LineNumberList *getLineNumberList();
+
+	virtual void print() = 0;
 };
 
 #endif /* defined(__Lab4__Token__) */
