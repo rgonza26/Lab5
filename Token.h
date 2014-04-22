@@ -28,18 +28,11 @@ private:
 public:
     Token();
     ~Token();
+
     void setCode(TokenCode newCode);
     TokenCode getCode();
-    void setType(LiteralType newType);
-    LiteralType getType();
-    void setLiteral(int newInteger);
-    int getIntLiteral();
-    void setLiteral(float newReal);
-    float getRealLiteral();
-    void setLiteral(string newString);
-    string getStringLiteral();
-    void setTokenString(string s);
-    string getTokenString();
+	void setTokenString(string s);
+	string getTokenString();
 
 	virtual void print() = 0;
 };

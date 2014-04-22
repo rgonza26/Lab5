@@ -10,20 +10,20 @@
 #define __Lab4__IdentifierBinaryTree__
 
 #include <iostream>
-#include "Token.h"
+#include "Identifier.hpp"
 
 class IdentifierBinaryTree
 {
-    Token *treeRoot;
+    Identifier *treeRoot;
     
-    void depthFirstDeleteTree(Token *tok);
+    void depthFirstDeleteTree(Identifier *tok);
     
 public:
     IdentifierBinaryTree();
     ~IdentifierBinaryTree();
-    void setTreeRoot(Token *root);
-    Token *getTreeRoot();
-    bool addIdentifier(Token *tok, int lineNum);
+    void setTreeRoot(Identifier *root);
+    Identifier *getTreeRoot();
+    bool addIdentifier(Identifier *tok, int lineNum);
 };
 
 #endif /* defined(__Lab4__IdentifierBinaryTree__) */
