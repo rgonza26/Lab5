@@ -8,7 +8,8 @@ class String : public Literal<string>{
 		String();
 		String(string value);
 		
-		void print();
+		void setString(string value);
+		string print();
 };
 
 

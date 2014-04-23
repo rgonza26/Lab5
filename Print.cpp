@@ -5,6 +5,8 @@
 //  Created by Bryce Holton.
 //
 
+#pragma warning(disable: 4996)
+
 #include "Print.h"
 #include "Token.h"
 
@@ -66,16 +68,13 @@ void Print::printToken(Token *token)
 {
     char line[MAX_SOURCE_LINE_LENGTH + 32];
     const char *symbol_string = SYMBOL_STRINGS[token->getCode()];
-    
-    switch (token->getCode())
-    {
+
+	/*
+    switch (token->getCode()){
         case NUMBER:
-            if (token->getType() == INTEGER_LIT)
-            {
+            if (token->getType() == INTEGER_LIT){
                 sprintf(line, "    >> %-16s %d (integer)\n", symbol_string, token->getIntLiteral());
-            }
-            else
-            {
+            }else{
                 sprintf(line, "    >> %-16s %g (real)\n", symbol_string, token->getRealLiteral());
             }
             break;
@@ -86,6 +85,9 @@ void Print::printToken(Token *token)
             sprintf(line, "    >> %-16s %-s\n", symbol_string, token->getTokenString().c_str());
             break;
     }
+	*/
+	
+    sprintf(line, "    >> %-16s %-s\n", symbol_string, token->print());
     printLine(line);
 }
 int Print::getLineCount()

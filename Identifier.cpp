@@ -27,6 +27,9 @@ Identifier *Identifier::getRightChild()
     return this->rightChild;
 }
 
+string Identifier::getTokenString(){
+	return this->literal;
+}
 
 void Identifier::addToLineNumberList(LineNumberList *listItem)
 {
@@ -48,4 +51,8 @@ void Identifier::addToLineNumberList(LineNumberList *listItem)
 LineNumberList *Identifier::getLineNumberList()
 {
     return this->list;
+}
+
+string Identifier::print(){
+	return this->literal;
 }

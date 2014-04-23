@@ -8,7 +8,7 @@ class Integer : public Literal<int>{
 		Integer();
 		Integer(int value);
 
-		void print();
+		string print();
 };
 
 

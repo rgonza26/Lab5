@@ -8,7 +8,7 @@ class Real : public Literal<double>{
 		Real();
 		Real(double value);
 
-		void print();
+		string print();
 }
 
 

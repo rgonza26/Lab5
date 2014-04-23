@@ -1,10 +1,10 @@
 #include "Literal.hpp"
 
-template <typename T> Literal<T>::Literal(){
+template <typename T> Literal<T>::Literal() : Token(){
 	this->value = 0x0;
 }
 
-template <typename T> Literal<T>::Literal(T value){
+template <typename T> Literal<T>::Literal(T value) : Token(){
 	this->value = value;
 }
 

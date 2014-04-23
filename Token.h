@@ -31,10 +31,8 @@ public:
 
     void setCode(TokenCode newCode);
     TokenCode getCode();
-	void setTokenString(string s);
-	string getTokenString();
 
-	virtual void print() = 0;
+	virtual string print() = 0;
 };
 
 #endif /* defined(__Lab4__Token__) */

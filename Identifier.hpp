@@ -14,7 +14,7 @@ using namespace std;
 class Identifier : public Token{
 private:
     TokenCode code;
-    String literal;
+    string literal;
     string tokenString;
 	
     //What variables and methods am I missing to implement a binary tree.
@@ -33,8 +33,9 @@ public:
     Identifier *getRightChild();
     void addToLineNumberList(LineNumberList *listItem);
     LineNumberList *getLineNumberList();
+	string getTokenString();
 
-	void print();
+	string print();
 };
 
 
