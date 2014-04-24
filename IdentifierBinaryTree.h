@@ -18,12 +18,12 @@ class IdentifierBinaryTree
     
     void depthFirstDeleteTree(Identifier *tok);
     
-public:
-    IdentifierBinaryTree();
-    ~IdentifierBinaryTree();
-    void setTreeRoot(Identifier *root);
-    Identifier *getTreeRoot();
-    bool addIdentifier(Identifier *tok, int lineNum);
+	public:
+		IdentifierBinaryTree();
+		~IdentifierBinaryTree();
+		void setTreeRoot(Identifier *root);
+		Identifier *getTreeRoot();
+		bool addIdentifier(Identifier *tok, int lineNum);
 };
 
 #endif /* defined(__Lab4__IdentifierBinaryTree__) */

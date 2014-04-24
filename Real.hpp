@@ -9,7 +9,7 @@ class Real : public Literal<double>{
 		Real(double value);
 
 		string print();
-}
+};
 
 
 #endif

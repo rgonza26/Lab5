@@ -5,6 +5,9 @@
 //  Created by Bryce Holton.
 //
 
+#pragma warning(disable: 4996)
+
+
 #include <cassert>
 
 #include "Scanner.h"
@@ -115,10 +118,12 @@ Token* Scanner::getToken()
             return getString(token_string, token_ptr);
             break;
         case EOF_CODE:
-            String* new_eof_token = new String();
-			new_eof_token->setCode(END_OF_FILE);
-			return new_eof_token;
-            break;
+			{
+				String* new_eof_token = new String();
+				new_eof_token->setCode(END_OF_FILE);
+				return new_eof_token;
+				break;
+			}
         default:
             return getSpecial(token_string, token_ptr);
             break;
@@ -275,6 +280,7 @@ Token* Scanner::getNumber(char *str, char *token_ptr)
         //tok->setLiteral((int)atoi(str));	//old remove
 		Integer* tok = new Integer((int)atoi(str));
 		tok->setCode(NUMBER);
+		return tok;
         //tok->setType(INTEGER_LIT);	//old remove
     }
     else
@@ -453,6 +459,7 @@ Token* Scanner::getSpecial(char *str, char *token_ptr)
     }
     *token_ptr = '\0';
     tok->setString(string(str));
+	return tok;
 }
 void Scanner::downshiftWord(char word[])
 {

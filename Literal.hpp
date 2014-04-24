@@ -3,18 +3,21 @@
 #define __LITERAL_HPP__
 
 #include <string>
+
 #include "Token.h"
+
 using namespace std;
 
 template <typename T> class Literal : public Token{
 	public:
 		//Methods
-		Literal();
-		Literal(T value);
-		~Literal();
+		Literal() : Token(){this->value = 0x0;}
+		Literal(T value) : Token(){this->value = value;}
+		~Literal(){}
 
-		T getValue();
-		void setValue(T);
+		T getValue(){return this->value;}
+		void setValue(T){this->value = value;}
+
 
 		virtual string print() = 0;
 
@@ -24,7 +27,6 @@ template <typename T> class Literal : public Token{
 	private:
 
 };
-
 
 
 #endif
