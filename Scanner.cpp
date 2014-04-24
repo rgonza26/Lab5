@@ -9,6 +9,7 @@
 
 
 #include <cassert>
+#include <stdlib.h>
 
 #include "Scanner.h"
 #include "Print.h"
