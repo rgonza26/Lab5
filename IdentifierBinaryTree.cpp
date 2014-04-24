@@ -13,7 +13,7 @@ using namespace std;
 
 IdentifierBinaryTree::IdentifierBinaryTree()
 {
-    setTreeRoot(NULL);
+    this->treeRoot = NULL;
 }
 IdentifierBinaryTree::~IdentifierBinaryTree()
 {
@@ -47,12 +47,14 @@ Identifier *IdentifierBinaryTree::getTreeRoot()
 }
 bool IdentifierBinaryTree::addIdentifier(Identifier *tok, int lineNum)
 {
+	/*
     bool success = false;
     LineNumberList *listItem = new LineNumberList();
     
     listItem->setLineNumber(lineNum);
     if (getTreeRoot() == NULL)
     {
+		//========= THISSSSSS
         setTreeRoot(tok);
         tok->addToLineNumberList(listItem);
         success = true;
@@ -70,12 +72,14 @@ bool IdentifierBinaryTree::addIdentifier(Identifier *tok, int lineNum)
             stringComparison = tokenName.compare(treeNodeName);
             if (stringComparison == 0)
             {
+			//=========SAME .:. > ADD LINE NUMBER
                 //They are the same identifier token we just need to add a new line number to the list.
                 parentNode->addToLineNumberList(listItem);
                 parentNode = NULL; //Exit the loop
                 delete tok;         //We won't need tok and it won't be deleted in main.
                 success = true;
             }
+			//=========LEFT
             else if (stringComparison < 0)
             {
                 //Go to the left.
@@ -93,6 +97,7 @@ bool IdentifierBinaryTree::addIdentifier(Identifier *tok, int lineNum)
                 }
             }
             else
+			//=========RIGHT
             {
                 //Go to the right.
                 if (parentNode->getRightChild() == NULL)
@@ -111,4 +116,31 @@ bool IdentifierBinaryTree::addIdentifier(Identifier *tok, int lineNum)
         }
     }
     return success;
+	*/
+	return addIdentifier2(this->treeRoot, tok, lineNum);
+}
+
+bool IdentifierBinaryTree::addIdentifier2(Identifier* &head, Identifier* tok, int lineNum){
+	bool success = false;
+	LineNumberList* newList = new LineNumberList();
+	newList->setLineNumber(lineNum);
+	newList->setNextLineNumber(NULL);
+
+	if(head == NULL){
+		head = tok;
+		head->addToLineNumberList(newList);
+		success = true;
+	}else{
+		if(tok->getTokenString() == head->getTokenString()){
+			head->addToLineNumberList(newList);
+			success = true;
+		}else if(tok->getTokenString() < head->getTokenString()){
+			addIdentifier2(head->leftChild, tok, lineNum);
+			success = true;
+		}else if(tok->getTokenString() > head->getTokenString()){
+			addIdentifier2(head->rightChild, tok, lineNum);
+			success = true;
+		}
+	}
+	return success;
 }

@@ -9,6 +9,10 @@
 
 #include "Print.h"
 #include "Token.h"
+#include <sstream>
+#include <iomanip>
+#include <iostream>
+using namespace std;
 
 const char* const SYMBOL_STRINGS[] =
 {
@@ -86,8 +90,13 @@ void Print::printToken(Token *token)
             break;
     }
 	*/
-	
-    sprintf(line, "    >> %-16s %-s\n", symbol_string, token->print());
+	//ostringstream ss;
+	//ss << "    >> " << setw(16) << symbol_string << " " << token->print() << '\n';
+	//sprintf(line, "%s", ss.str().c_str());
+	//printLine(line);
+
+	string tokPr = token->print();
+    sprintf(line, "    >> %-16s %-s\n", symbol_string, tokPr.c_str());
     printLine(line);
 }
 int Print::getLineCount()

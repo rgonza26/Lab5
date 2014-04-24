@@ -211,10 +211,11 @@ Token* Scanner::getWord(char *str, char *token_ptr)
      */
 	Token* tok = new String(string(str));
 	tok->setTokenString(string(str));
-    if (!isReservedWord(str, tok))
+	bool isReservedChk = isReservedWord(str, tok);
+    if (!isReservedChk)
     {
         //set token to identifier
-		tok = new Identifier();
+		tok = new Identifier(str);
         tok->setCode(IDENTIFIER);
 		return tok;
     }

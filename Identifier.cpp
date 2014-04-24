@@ -3,7 +3,11 @@
 Identifier::Identifier() : Token(){
 	this->list = NULL;
 }
-
+Identifier::Identifier(string val) : Token(){
+	this->list = NULL;
+	this->literal = val;
+	this->tokenString = val;
+}
 Identifier::~Identifier(){
 
 }

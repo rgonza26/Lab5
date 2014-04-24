@@ -17,14 +17,12 @@ private:
     string literal;
     string tokenString;
 	
-    //What variables and methods am I missing to implement a binary tree.
-    Identifier *leftChild;
-    Identifier *rightChild;
 	
     LineNumberList *list;
     
 public:
     Identifier();
+	Identifier(string val);
     ~Identifier();
 
     void setLeftChild(Identifier *tok);
@@ -34,6 +32,13 @@ public:
     void addToLineNumberList(LineNumberList *listItem);
     LineNumberList *getLineNumberList();
 	string getTokenString();
+	
+    //What variables and methods am I missing to implement a binary tree.
+    Identifier *leftChild;
+    Identifier *rightChild;
+
+
+
 
 	string print();
 };
