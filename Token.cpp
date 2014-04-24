@@ -23,3 +23,11 @@ TokenCode Token::getCode()
 {
     return this->code;
 }
+
+void Token::setTokenString(string val){
+	this->tokenString = val;
+}
+
+string Token::getTokenString(){
+	return this->tokenString;
+}

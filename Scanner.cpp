@@ -210,11 +210,13 @@ Token* Scanner::getWord(char *str, char *token_ptr)
      if it is not a reserved word its an identifier.
      */
 	Token* tok = new String(string(str));
+	tok->setTokenString(string(str));
     if (!isReservedWord(str, tok))
     {
         //set token to identifier
+		tok = new Identifier();
         tok->setCode(IDENTIFIER);
-		tok = (Identifier*)(tok);
+		return tok;
     }
 	return tok;
 }
@@ -288,6 +290,7 @@ Token* Scanner::getNumber(char *str, char *token_ptr)
         //tok->setLiteral((float)atof(str));	//old remove
 		Real* tok = new Real((float)atof(str));
 		tok->setCode(NUMBER);
+		tok->setTokenString(string(str));
 		return tok;
         //tok->setType(REAL_LIT);	//old remove
     }

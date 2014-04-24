@@ -46,6 +46,12 @@ int main(int argc, const char * argv[])
     print.printTree(tree.getTreeRoot());
     delete token;
     fclose(source_file);
+
+
+
+
+
+	getchar();
     return 0;
 }
 FILE *init_lister(const char *name, char source_file_name[], char dte[])

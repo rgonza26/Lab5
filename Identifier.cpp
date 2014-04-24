@@ -1,7 +1,7 @@
 #include "Identifier.hpp"
 
 Identifier::Identifier() : Token(){
-
+	this->list = NULL;
 }
 
 Identifier::~Identifier(){
@@ -34,7 +34,6 @@ string Identifier::getTokenString(){
 void Identifier::addToLineNumberList(LineNumberList *listItem)
 {
     LineNumberList *tmp = getLineNumberList();
-    
     if (tmp == NULL)
     {
         list = listItem;

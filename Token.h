@@ -31,6 +31,8 @@ public:
 
     void setCode(TokenCode newCode);
     TokenCode getCode();
+	void setTokenString(string str);
+	string getTokenString();
 
 	virtual string print() = 0;
 };

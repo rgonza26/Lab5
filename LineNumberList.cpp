@@ -10,8 +10,8 @@
 
 LineNumberList::LineNumberList()
 {
-    setLineNumber(0);
-    setNextLineNumber(NULL);
+    this->lineNumber = 0;
+	this->nextLineNumber = NULL;
 }
 LineNumberList::~LineNumberList()
 {
